@@ -37,6 +37,9 @@ if(!isset($_SESSION['user_name'])){
             <div class="container">
                 <div class="site-header-inner">
                     <div class="brand header-brand">
+                        <?php
+                            echo "Hello, today is ". date("d-m-Y H:i:s");
+                        ?>
                         <div>
                             <div style="position: relative; left:275px; top: 60px"><a class="button button-shadow" style="background-color: #b28228; width: 125px" href="../login_system/user_page.php">Home</a>
                             <a class="button button-shadow" style="background-color: #b28228; width: 125px" href="Bag.php">Bag</a> 

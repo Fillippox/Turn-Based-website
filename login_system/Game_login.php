@@ -10,7 +10,8 @@ $pass = md5($_POST['password']);
 if($conn->connect_error){
     die("Connection failed: " . $conn->connect_error);
 }
-echo " Connected YEY";
+//echo " Successfully connected to Server \n";
+
 
 $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass'  ";
 
@@ -20,20 +21,19 @@ if($result->num_rows > 0)
 {
     while($row = $result->fetch_assoc()) 
     {
-        if($row['password'] == $pass)
+        if($row["password"] == $pass)
         {
-            echo "Login Success.";
+            echo $row["id"];
         }
-    
         else
         {
-            echo "Wrong Credentials.";
+            echo "Wrong Password.";
         }
     }
-    else
-    {
-        echo "Username does not exist.";
-    }
+}
+else
+{
+    echo "Wrong Credentials.";
 }
 
 $conn->close();

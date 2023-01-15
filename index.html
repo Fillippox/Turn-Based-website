@@ -34,9 +34,11 @@
                     <div class="hero-inner">
 						<div class="hero-copy">
 							<h1 class="hero-title mt-0">
-								Play the Game
+								Welcome to Momoa!
 							</h1>
-	                        <p class="hero-paragraph">Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.
+	                        <p class="hero-paragraph"> Are you ready for an exciting and challenging turn-based adventure? 
+								Dive into the game and test your strategy skills as you battle your way to victory. 
+								Don't wait any longer, try our early version and see if you have what it takes to come out on top!
 
 							</p>
 	                        <div class="hero-cta"><a class="button button-primary button-shadow" href="login_system/login_form.php">Early access</a></div>
@@ -88,10 +90,10 @@
 												<path d="M448.206 223.247c-97.52-122.943-154.274-117.426-170.26 16.55C261.958 373.775 169.717 378.766 1.222 254.77c-9.255 95.477 47.794 175.211 171.148 239.203 185.032 95.989 424.986-180.108 424.986-239.203 0-39.396-49.717-49.904-149.15-31.523z" fill="url(#hero-shape-e)" transform="matrix(-1 0 0 1 597.61 0)"/>
 											</g>
 										</g>
-								    </g>
+								    </g>	
 								</svg>
 							</div>
-							<img class="device-mockup" src="dist/images/iphone-mockup.png" alt="App preview">
+							<img class="device-mockup" src="dist/images/gameSS.png" alt="App preview">
                             <div class="hero-app-dots hero-app-dots-1">
 								<svg width="124" height="75" xmlns="http://www.w3.org/2000/svg">
 								    <g fill="none" fill-rule="evenodd">
@@ -167,7 +169,11 @@
                     <div class="media-inner section-inner">
                         <div class="media-header text-center">
                             <h2 class="section-title mt-0">Meet Momoa</h2>
-                            <p class="section-paragraph mb-0">Lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation.</p>
+                            <p class="section-paragraph mb-0"> 
+								Check out our gameplay video and get a sneak peek at the thrilling battles and strategic gameplay that await you. 
+								Don't miss out, watch the video NOW!
+
+							</p>
                         </div>
 						<div class="media-canvas">
 							<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
@@ -209,16 +215,20 @@
                     <div class="newsletter-inner section-inner">
                         <div class="newsletter-header text-center">
                             <h2 class="section-title mt-0">Stay in the know</h2>
-                            <p class="section-paragraph">Lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation.</p>
+                            <p class="section-paragraph">Sign up to our newsletter to be the first to know when our game releases</p>
                         </div>
-                        <div class="footer-form newsletter-form field field-grouped">
-                            <div class="control control-expanded">
-                                <input class="input" type="email" name="email" placeholder="Your best email&hellip;">
+
+                        <form action="login_system/email_handler.php" method="post">
+                            <div class="footer-form newsletter-form field field-grouped">
+                                <div class="control control-expanded">
+                                    <input class="input" type="email" name="email"  id="eml" placeholder="Your best email&hellip;">
+                                </div>
+                                <div class="control">
+                                    <button class="button button-primary button-block button-shadow" type="submit" name="submit">Get Notified</button>
+                                </div>
                             </div>
-                            <div class="control">
-                                <a class="button button-primary button-block button-shadow" href="#">Early access</a>
-                            </div>
-                        </div>
+                        </form>
+					
                     </div>
                 </div>
             </section>

@@ -1,0 +1,43 @@
+input[type="submit"] {
+    background-color: #00b8d4; /* bright blue button color */
+    color: #fff; /* white text color */
+    font-weight: bold; /* bold text */
+    padding: 10px 20px; /* add some padding to the button */
+    border: none; /* remove the border */
+    border-radius: 10px; /* round the corners of the button */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* add a subtle box shadow */
+    transition: all 0.3s ease; /* add a transition for hover effects */
+  }
+
+  input[type="submit"]:hover {
+    background-color: #0052cc; /* darker blue hover color */
+    cursor: pointer; /* change the cursor to a pointer on hover */
+  }
+
+
+  .image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 1000px;
+  }
+  
+  .image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+
+  .image-and-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+
+  

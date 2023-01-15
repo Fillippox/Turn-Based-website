@@ -37,18 +37,32 @@ if(!isset($_SESSION['user_name'])){
             <div class="container">
                 <div class="site-header-inner">
                     <div class="brand header-brand">
-                        <?php
-                            echo "Hello, today is ". date("d-m-Y H:i:s");
-                        ?>
+
+                        <div id="time" style="text-align: left;"> </div>
+
+                        <script>
+                        function updateTime() {
+                            var currentTime = new Date();
+                            document.getElementById("time").innerHTML = "Hello, today is " + currentTime.toLocaleDateString() + " " + currentTime.toTimeString().substr(0, 8);
+
+                            // Call the updateTime function again after 1000 milliseconds (1 second)
+                            setTimeout(updateTime, 1000);
+                        }
+
+                        // Call the updateTime function for the first time
+                        updateTime();
+                        </script>
+
                         <div>
                             <div style="position: relative; left:275px; top: 60px"><a class="button button-shadow" style="background-color: #b28228; width: 125px" href="../login_system/user_page.php">Home</a>
+                            <a class="button button-shadow" style="background-color: #b28228; width: 125px" href="Adventure.php">Adventure</a>
                             <a class="button button-shadow" style="background-color: #b28228; width: 125px" href="Bag.php">Bag</a> 
                             <a class="button button-shadow" style="background-color: #b28228; width: 125px" href="Shop.php">Shop</a>
-                            <a href="logout.php" class="button button-primary button-shadow">logout</a>
+                            <a href="../login_system/logout.php" class="button button-primary button-shadow">logout</a>
                             </div>
                         </div>
                         <h1 class="m-0">
-                            <a href="#">
+                            <a href="../login_system/user_page.php">
                               <img width="64" height="64" src="../images/monster.png"/>
                             </a>
                         </h1>
@@ -63,13 +77,19 @@ if(!isset($_SESSION['user_name'])){
                     <div class="hero-inner">
 						<div class="hero-copy">
                             <div class="content">
-                            <h2>Welcome <span><?php echo $_SESSION['user_name'] ?></span> select a region</h2>
+                            <h2>Enjoy</h2>
+                            <br>
+                            <br>
+                            <br>
+
+                            <iframe src="../Build2/index.html" width="1000" height="700"></iframe>
+
+
                             <p></p>
                             <!--<a href="login_form.php" class="btn">login</a>
                             <a href="register_form.php" class="btn">register</a>
                             <a href="logout.php" class="btn">logout</a>-->
                             </div>
-	                        <div class="hero-cta"><a class="button button-shadow" href="#">Learn more</a><a class="button button-primary button-shadow" href="#">Early access</a></div>
 						</div>
 						<div class="hero-app">
 							<div class="hero-app-illustration">

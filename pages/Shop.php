@@ -1,12 +1,85 @@
 <?php
 
-@include 'config.php';
+//@include 'config.php';
 
 session_start();
+
+$host = "localhost";
+$username = "root";
+$password = "";
+$dbname = "user_db";
+
+$conn = mysqli_connect($host, $username, $password, $dbname);
 
 if(!isset($_SESSION['user_name'])){
    header('location:login_form.php');
 }
+
+if(isset($_SESSION['uid'])) { // check if the 'uid' key is set in the $_SESSION array
+}
+
+if(isset($_SESSION['coinsCount'])) { // check if the 'coinsCount' key is set in the $_SESSION array
+}
+
+if($conn->connect_error)
+{
+    die("Connection Failed: " . $conn->connect_error);
+}
+
+// Check if the form has been submitted
+if (isset($_POST['submit'])) {
+    // Get the form data
+    $userID = $_SESSION['uid'];
+    $itemID = $_POST['itemID'];
+    $itemPrice = 0;
+
+    $query = "SELECT price FROM items WHERE ID='$itemID'";
+    $result = mysqli_query($conn, $query);
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+        $itemPrice = $row['price'];
+    }
+
+    // Check if the user has enough coins
+    if ($_SESSION['coinsCount'] >= $itemPrice) {
+        // Insert the data into the database
+        $query = "INSERT INTO user_items (userID, itemID) VALUES ('$userID', '$itemID')";
+
+        $result = mysqli_query($conn, $query);
+
+        if ($result) {
+            // The query was successful
+            echo "New record created successfully <br>";
+
+            $_SESSION['coinsCount'] -= $itemPrice;
+            $query = "UPDATE user_form SET coins = coins - $itemPrice WHERE ID = '$userID'";
+            $result = mysqli_query($conn, $query);
+
+            if($result)
+            {
+                // The query was successful
+                echo "Coins count updated successfully";
+            } 
+            else 
+            {
+                // The query failed
+                echo "Error: " . $query . "<br>" . mysqli_error($conn);
+            }
+        } 
+        else 
+        {
+            // The query failed
+            echo "Error: " . $query . "<br>" . mysqli_error($conn);
+        }
+    } 
+    else 
+    {
+        echo "You do not have enough coins to purchase this item.";
+    }
+}
+
+// Close the connection
+mysqli_close($conn);
 
 ?>
 
@@ -24,6 +97,7 @@ if(!isset($_SESSION['user_name'])){
 
    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700|Playfair+Display:700" rel="stylesheet">
    <link rel="stylesheet" href="../dist/css/style.css">
+   <link rel="stylesheet" href="../MyCss/ShopCss.css">
    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 	<link rel="icon" href="../images/monster.png">
 
@@ -37,12 +111,28 @@ if(!isset($_SESSION['user_name'])){
             <div class="container">
                 <div class="site-header-inner">
                     <div class="brand header-brand">
+
+                        <div id="time" style="text-align: left;"> </div>
+
+                        <script>
+                        function updateTime() {
+                            var currentTime = new Date();
+                            document.getElementById("time").innerHTML = "Hello, today is " + currentTime.toLocaleDateString() + " " + currentTime.toTimeString().substr(0, 8);
+
+                            // Call the updateTime function again after 1000 milliseconds (1 second)
+                            setTimeout(updateTime, 1000);
+                        }
+
+                        // Call the updateTime function for the first time
+                        updateTime();
+                        </script>
+
                         <div>
                             <div style="position: relative; left:225px; top: 60px"><a class="button button-shadow" style="background-color: #b28228; width: 125px" href="../login_system/user_page.php">Home</a>
                             <a class="button button-shadow" style="background-color: #b28228; width: 125px" href="Adventure.php">Adventure</a>
                             <a class="button button-shadow" style="background-color: #b28228; width: 125px" href="Bag.php">Bag</a> 
                             <a class="button button-shadow" style="background-color: #b28228; width: 125px" href="Shop.php">Shop</a>
-                            <a href="logout.php" class="button button-primary button-shadow">logout</a>
+                            <a href="../login_system/logout.php" class="button button-primary button-shadow">logout</a>
                             </div>
                         </div>
                         <h1 class="m-0">
@@ -62,12 +152,85 @@ if(!isset($_SESSION['user_name'])){
 						<div class="hero-copy">
                             <div class="content">
                             <h2>Welcome to Shop</h2>
-                            <p></p>
+                            <h3>Your balance <span><?php echo $_SESSION['coinsCount'] ?></span></h3>
+                            <br>
+                            <br>
+                            
+                            <div class="image-container">
+                                <div class="image-and-form">
+                                    <img src="../Items_Icons/1.png" class="image">
+                                    <div>Price: 500</div>
+                                    <br>
+                                    <form method="post">
+                                    <input type="hidden" id="itemID" name="itemID" value="1">
+                                    <input type="submit" name ="submit" value="Buy">
+                                    </form>
+                                </div>
+                                <div class="image-and-form">
+                                    <img src="../Items_Icons/2.png" class="image">
+                                    <div>Price: 300</div>
+                                    <br>
+                                    <form method="post">
+                                    <input type="hidden" id="itemID" name="itemID" value="2">
+                                    <input type="submit" name ="submit" value="Buy">
+                                    </form>
+                                </div>
+                                <div class="image-and-form">
+                                    <img src="../Items_Icons/3.png" class="image">
+                                    <div>Price: 20</div>
+                                    <br>
+                                    <form method="post">
+                                    <input type="hidden" id="itemID" name="itemID" value="3">
+                                    <input type="submit" name ="submit" value="Buy">
+                                    </form>
+                                </div>
+                                <div class="image-and-form">
+                                    <img src="../Items_Icons/4.png" class="image">
+                                    <div>Price: 15</div>
+                                    <br>
+                                    <form method="post">
+                                    <input type="hidden" id="itemID" name="itemID" value="4">
+                                    <input type="submit" name ="submit" value="Buy">
+                                    </form>
+                                </div>
+                                <div class="image-and-form">
+                                    <img src="../Items_Icons/5.png" class="image">
+                                    <div>Price: 1500</div>
+                                    <br>
+                                    <form method="post">
+                                    <input type="hidden" id="itemID" name="itemID" value="5">
+                                    <input type="submit" name ="submit" value="Buy">
+                                    </form>
+                                </div>
+                                <div class="image-and-form">
+                                    <img src="../Items_Icons/6.png" class="image">
+                                    <div>Price: 800</div>
+                                    <br>
+                                    <form method="post">
+                                    <input type="hidden" id="itemID" name="itemID" value="6">
+                                    <input type="submit" name ="submit" value="Buy">
+                                    </form>
+                                </div>
+                                
+                                <!-- Add more images here -->
+                                </div>
+
+
                             <!--<a href="login_form.php" class="btn">login</a>
                             <a href="register_form.php" class="btn">register</a>
                             <a href="logout.php" class="btn">logout</a>-->
+
                             </div>
-	                        <div class="hero-cta"><a class="button button-shadow" href="#">Learn more</a><a class="button button-primary button-shadow" href="#">Early access</a></div>
+                            <br>
+                            <br>
+                            <br>
+
+	                        <!-- <div class="hero-cta"><a class="button button-shadow" href="#">Learn more</a>
+                            <a class="button button-primary button-shadow" href="#">Early access</a></div> 
+
+                            ctrl + k + c to comment mulltiple line at once
+                            -->
+                            
 						</div>
 						<div class="hero-app">
 							<div class="hero-app-illustration">

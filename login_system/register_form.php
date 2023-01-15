@@ -44,10 +44,18 @@ if(isset($_POST['submit'])){
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
+   <link rel="icon" href="../images/monster.png">
 
 </head>
 <body>
    
+
+<div style="background: #eee;">
+   <a href="../index.html">
+      <img width="64" height="64" src="../images/monster.png"/>
+   </a>
+</div>
+
 <div class="form-container">
 
    <form action="" method="post">

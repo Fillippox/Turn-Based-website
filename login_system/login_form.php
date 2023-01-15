@@ -23,11 +23,15 @@ if(isset($_POST['submit'])){
       if($row['user_type'] == 'admin'){
 
          $_SESSION['admin_name'] = $row['name'];
+         $_SESSION['uid'] = $row['id'];
+         $_SESSION['coinsCount'] = $row['coins'];
          header('location:admin_page.php');
 
       }elseif($row['user_type'] == 'user'){
 
          $_SESSION['user_name'] = $row['name'];
+         $_SESSION['uid'] = $row['id'];
+         $_SESSION['coinsCount'] = $row['coins'];
          header('location:user_page.php');
 
       }
@@ -37,6 +41,7 @@ if(isset($_POST['submit'])){
    }
 
 };
+
 ?>
 
 <!DOCTYPE html>
@@ -49,10 +54,18 @@ if(isset($_POST['submit'])){
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
+   <link rel="icon" href="../images/monster.png">
 
 </head>
+
 <body>
-   
+
+<div style="background: #eee;">
+   <a href="../index.html">
+      <img width="64" height="64" src="../images/monster.png"/>
+   </a>
+</div>
+
 <div class="form-container">
 
    <form action="" method="post">
@@ -67,7 +80,7 @@ if(isset($_POST['submit'])){
       <input type="email" name="email" required placeholder="enter your email">
       <input type="password" name="password" required placeholder="enter your password">
       <input type="submit" name="submit" value="login now" class="form-btn">
-      <p>don't have an account? <a href="register_form.php">register now</a></p>
+      <p>Don't have an account? <a href="register_form.php">register now</a></p>
    </form>
 
 </div>

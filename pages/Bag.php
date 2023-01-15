@@ -1,12 +1,62 @@
 <?php
 
-@include 'config.php';
+//@include 'config.php';
 
 session_start();
+
+$host = "localhost";
+$username = "root";
+$password = "";
+$dbname = "user_db";
+
+$conn = mysqli_connect($host, $username, $password, $dbname);
 
 if(!isset($_SESSION['user_name'])){
    header('location:login_form.php');
 }
+
+if(isset($_SESSION['uid'])) { // check if the 'uid' key is set in the $_SESSION array
+}
+
+//User submited variables
+$userID = $_SESSION['uid'];
+
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT itemID FROM user_items WHERE userID ='". $userID . "'";
+
+$result = mysqli_query($conn, $sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  $rows = array();
+  while($row = $result->fetch_assoc()) 
+  {
+
+    // Get the item information for the current item
+    $itemResult = mysqli_query($conn, "SELECT name,description,price FROM items WHERE id = {$row['itemID']}");
+    $item = $itemResult->fetch_assoc();
+
+    $rows[] = array(
+        "Name" => $item['name'],
+        "Description" => $item['description'],
+        "Price" => $item['price'],
+      );
+  }
+
+  //echo json_encode($rows);
+
+}
+else 
+{
+  echo "0 results";
+}
+
+$conn->close();
 
 ?>
 
@@ -24,6 +74,7 @@ if(!isset($_SESSION['user_name'])){
 
    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700|Playfair+Display:700" rel="stylesheet">
    <link rel="stylesheet" href="../dist/css/style.css">
+   <link rel="stylesheet" href="../MyCss/BagCss.css">
    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 	<link rel="icon" href="../images/monster.png">
 
@@ -37,16 +88,33 @@ if(!isset($_SESSION['user_name'])){
             <div class="container">
                 <div class="site-header-inner">
                     <div class="brand header-brand">
+
+                    <div id="time" style="text-align: left;"> </div>
+
+                    <script>
+                    function updateTime() {
+                        var currentTime = new Date();
+                        document.getElementById("time").innerHTML = "Hello, today is " + currentTime.toLocaleDateString() + " " + currentTime.toTimeString().substr(0, 8);
+
+                        // Call the updateTime function again after 1000 milliseconds (1 second)
+                        setTimeout(updateTime, 1000);
+                    }
+
+                    // Call the updateTime function for the first time
+                    updateTime();
+                    </script>
+
+
                         <div>
                             <div style="position: relative; left:225px; top: 60px"><a class="button button-shadow" style="background-color: #b28228; width: 125px" href="../login_system/user_page.php">Home</a>
                             <a class="button button-shadow" style="background-color: #b28228; width: 125px" href="Adventure.php">Adventure</a>
                             <a class="button button-shadow" style="background-color: #b28228; width: 125px" href="Bag.php">Bag</a> 
                             <a class="button button-shadow" style="background-color: #b28228; width: 125px" href="Shop.php">Shop</a>
-                            <a href="logout.php" class="button button-primary button-shadow">logout</a>
+                            <a href="../login_system/logout.php" class="button button-primary button-shadow">logout</a>
                             </div>
                         </div>
                         <h1 class="m-0">
-                            <a href="#">
+                            <a href="../login_system/user_page.php">
                               <img width="64" height="64" src="../images/monster.png"/>
                             </a>
                         </h1>
@@ -62,10 +130,32 @@ if(!isset($_SESSION['user_name'])){
 						<div class="hero-copy">
                             <div class="content">
                             <h2>Items</h2>
+                            <br>
+                            <br>
+
+                            <table>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Price</th>
+                                </tr>
+                                <?php
+                                foreach ($rows as $row) {
+                                    echo "<tr>";
+                                    echo "<td>" . $row['Name'] . "</td>";
+                                    echo "<td>" . $row['Description'] . "</td>";
+                                    echo "<td>" . $row['Price'] . "</td>";
+                                    echo "</tr>";
+                                }
+                                ?>
+                            </table>
+
                             <p></p>
+                            <br>
+                            <br>
+
                             </div>
-	                        <div class="hero-cta"><a class="button button-shadow" href="#">Learn more</a><a class="button button-primary button-shadow" href="#">Early access</a></div>
-						</div>
+	                        </div>
 						<div class="hero-app">
 							<div class="hero-app-illustration">
 								<svg width="999" height="931" xmlns="http://www.w3.org/2000/svg">

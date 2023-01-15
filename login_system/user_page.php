@@ -8,6 +8,9 @@ if(!isset($_SESSION['user_name'])){
    header('location:login_form.php');
 }
 
+if(isset($_SESSION['coinsCount'])) { // check if the 'uid' key is set in the $_SESSION array
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -38,8 +41,24 @@ if(!isset($_SESSION['user_name'])){
                 <div class="site-header-inner">
                     <div class="brand header-brand">
                         <?php
-                            echo "Hello, today is ". date("d-m-Y H:i:s");
+                            //echo "Hello, today is ". date("d-m-Y H:i:s");   WYŚWIETLA ALE NIE ODŚWIEŻA GODZINY 
                         ?>
+
+                        <div id="time" style="text-align: left;"> </div>
+
+                        <script>
+                        function updateTime() {
+                            var currentTime = new Date();
+                            document.getElementById("time").innerHTML ="Hello, today is " + currentTime.toLocaleDateString() + " " + currentTime.toTimeString().substr(0, 8);
+
+                            // Call the updateTime function again after 1000 milliseconds (1 second)
+                            setTimeout(updateTime, 1000);
+                        }
+
+                        // Call the updateTime function for the first time
+                        updateTime();
+                        </script>
+
                         <div>
                             <div style="position: relative; left:275px; top: 60px"><a class="button button-shadow" style="background-color: #b28228; width: 125px" href="../pages/Adventure.php">Adventure</a>
                             <a class="button button-shadow" style="background-color: #b28228; width: 125px" href="../pages/Bag.php">Bag</a> 
@@ -63,15 +82,71 @@ if(!isset($_SESSION['user_name'])){
                     <div class="hero-inner">
 						<div class="hero-copy">
                             <div class="content">
-                            <h3>hi, <span>user</span></h3>
                             <h1>welcome <span><?php echo $_SESSION['user_name'] ?></span></h1>
-                            <p>this is an user page</p>
+                            <br>
+                            <br>
+                            <h3>Announcements:</h3>
+                            <br>
+
+                            <div class="slideshow-box">
+                                <div class="slideshow-container">
+                                    <div class="mySlides">
+                                    <img src="../images/beta.jpg" class="slideshow-image">
+                                    <div class="text">Early Access Finally Ready!</div>
+                                    </div>
+
+                                    <div class="mySlides">
+                                    <img src="../images/special-event.jpg" class="slideshow-image">
+                                    <div class="text">Upcoming First Event!</div>
+                                    </div>
+
+                                    <div class="mySlides">
+                                    <img src="../images/new-character.jpg" class="slideshow-image">
+                                    <div class="text">New Character Will Be Added Soon!</div>
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <div style="text-align:center;">
+                                    <span class="dot"></span> 
+                                    <span class="dot"></span> 
+                                    <span class="dot"></span> 
+                                </div>
+                                </div>
+
+                                <script>
+                                var slideIndex = 0;
+                                showSlides();
+
+                                function showSlides() {
+                                var i;
+                                var slides = document.getElementsByClassName("mySlides");
+                                var dots = document.getElementsByClassName("dot");
+                                for (i = 0; i < slides.length; i++) {
+                                    slides[i].style.display = "none";  
+                                }
+                                slideIndex++;
+                                if (slideIndex > slides.length) {slideIndex = 1}    
+                                for (i = 0; i < dots.length; i++) {
+                                    dots[i].className = dots[i].className.replace(" active", "");
+                                }
+                                slides[slideIndex-1].style.display = "block";  
+                                dots[slideIndex-1].className += " active";
+                                setTimeout(showSlides, 3000); // Change image every 2 seconds
+                                }
+                                </script>
+
+                            <br>
+
                             <!--<a href="login_form.php" class="btn">login</a>
                             <a href="register_form.php" class="btn">register</a>
                             <a href="logout.php" class="btn">logout</a>-->
                             </div>
-	                        <div class="hero-cta"><a class="button button-shadow" href="#">Learn more</a><a class="button button-primary button-shadow" href="#">Early access</a></div>
 						</div>
+
+                        <h3 style = "float: right;">Your balance <span><?php echo $_SESSION['coinsCount'] ?></span></h3>
+
 						<div class="hero-app">
 							<div class="hero-app-illustration">
 								<svg width="999" height="931" xmlns="http://www.w3.org/2000/svg">
@@ -153,6 +228,7 @@ if(!isset($_SESSION['user_name'])){
         <div class="container">
 
    
+        
 </div>
 
         <footer class="site-footer">

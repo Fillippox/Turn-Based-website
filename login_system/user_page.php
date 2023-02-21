@@ -28,13 +28,27 @@ if(isset($_SESSION['coinsCount'])) { // check if the 'uid' key is set in the $_S
    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700|Playfair+Display:700" rel="stylesheet">
    <link rel="stylesheet" href="../dist/css/style.css">
    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
-	<link rel="icon" href="../images/monster.png">
+    <link rel="icon" href="../images/monster.png">
+
+    <style>    
+
+    .slideshow-container {
+            height: 400px; /* set the desired height here */
+        }
+        
+    .slideshow-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    </style>
 
 </head>
+
+
 <body class="is-boxed has-animations">
-
-
-
+    
 <div class="body-wrap boxed-container">
         <header class="site-header">
             <div class="container">
@@ -85,8 +99,11 @@ if(isset($_SESSION['coinsCount'])) { // check if the 'uid' key is set in the $_S
                             <h1>welcome <span><?php echo $_SESSION['user_name'] ?></span></h1>
                             <br>
                             <br>
+                            
                             <h3>Announcements:</h3>
                             <br>
+
+                            
 
                             <div class="slideshow-box">
                                 <div class="slideshow-container">
@@ -108,11 +125,11 @@ if(isset($_SESSION['coinsCount'])) { // check if the 'uid' key is set in the $_S
 
                                 <br>
 
-                                <div style="text-align:center;">
-                                    <span class="dot"></span> 
-                                    <span class="dot"></span> 
-                                    <span class="dot"></span> 
-                                </div>
+                                    <div style="text-align:center;">
+                                        <span class="dot"></span> 
+                                        <span class="dot"></span> 
+                                        <span class="dot"></span> 
+                                    </div>
                                 </div>
 
                                 <script>

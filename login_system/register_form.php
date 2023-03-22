@@ -22,13 +22,23 @@ if(isset($_POST['submit'])){
 
       if($pass != $cpass){
          $error[] = 'password not matched!';
-      }else{
+      }
+      else{
+         // Password validation check here
+         if(strlen($_POST['password']) < 8 || !preg_match("#[0-9]+#", $_POST['password']) || !preg_match("#[a-z]+#", $_POST['password']) || !preg_match("#[A-Z]+#", $_POST['password'])) {
+            $error[] = 'Password should be: 
+            <br> •At least 8 characters long 
+            <br> •Contain at least one uppercase letter 
+            <br> •One lowercase letter 
+            <br> •One number.';
+      }
+      else{
          $insert = "INSERT INTO user_form(name, email, password, user_type) VALUES('$name','$email','$pass','$user_type')";
          mysqli_query($conn, $insert);
          header('location:login_form.php');
       }
    }
-
+}
 };
 
 

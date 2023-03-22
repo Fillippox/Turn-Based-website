@@ -93,7 +93,7 @@ mysqli_close($conn);
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-   <title>Momoa | User</title>
+   <title>Momoa | Shop</title>
 
    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700|Playfair+Display:700" rel="stylesheet">
    <link rel="stylesheet" href="../dist/css/style.css">
@@ -152,7 +152,7 @@ mysqli_close($conn);
 						<div class="hero-copy">
                             <div class="content">
                             <h2>Welcome to Shop</h2>
-                            <h3>Your balance <span><?php echo $_SESSION['coinsCount'] ?></span></h3>
+                            <h3>Your balance <span id="coins-count"><?php echo $_SESSION['coinsCount'] ?></span></h3>
                             <br>
                             <br>
                             

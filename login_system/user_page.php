@@ -108,18 +108,20 @@ if(isset($_SESSION['coinsCount'])) { // check if the 'uid' key is set in the $_S
                             <div class="slideshow-box">
                                 <div class="slideshow-container">
                                     <div class="mySlides">
-                                    <img src="../images/beta.jpg" class="slideshow-image">
+                                    <img src="../images/Beta2.png" class="slideshow-image">
                                     <div class="text">Early Access Finally Ready!</div>
                                     </div>
 
                                     <div class="mySlides">
-                                    <img src="../images/special-event.jpg" class="slideshow-image">
+                                    <img src="../images/Comming-Soon.jpg" class="slideshow-image">
                                     <div class="text">Upcoming First Event!</div>
+                                    <a href="http://www.freepik.com">Designed by Freepik</a>
                                     </div>
 
                                     <div class="mySlides">
-                                    <img src="../images/new-character.jpg" class="slideshow-image">
+                                    <img src="../images/New Realese.jpg" class="slideshow-image">
                                     <div class="text">New Character Will Be Added Soon!</div>
+                                    <a href="https://pl.freepik.com/darmowe-zdjecie/nowa-wersja-najnowsza-koncepcja-aktualizacji-marki_17129699.htm#query=New%20content&position=37&from_view=search&track=ais">Made by rawpixel.com</a>
                                     </div>
                                 </div>
 

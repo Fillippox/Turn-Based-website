@@ -27,10 +27,12 @@ if(isset($_SESSION['coinsCount'])) { // check if the 'uid' key is set in the $_S
 
    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700|Playfair+Display:700" rel="stylesheet">
    <link rel="stylesheet" href="../dist/css/style.css">
+   <link rel="stylesheet" href="css/gallery.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
     <link rel="icon" href="../images/monster.png">
 
-    <style>    
+    <!-- <style>    
 
     .slideshow-container {
             height: 400px; /* set the desired height here */
@@ -42,7 +44,9 @@ if(isset($_SESSION['coinsCount'])) { // check if the 'uid' key is set in the $_S
         object-fit: cover;
     }
 
-    </style>
+    </style> -->
+
+    <script src="https://kit.fontawesome.com/a59b9b09ab.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -94,79 +98,117 @@ if(isset($_SESSION['coinsCount'])) { // check if the 'uid' key is set in the $_S
             <section class="hero">
                 <div class="container">
                     <div class="hero-inner">
-						<div class="hero-copy">
-                            <div class="content">
-                            <h1>welcome <span><?php echo $_SESSION['user_name'] ?></span></h1>
-                            <br>
-                            <br>
-                            
-                            <h3>Announcements:</h3>
-                            <br>
+                        <div class="content">
+                        <h1 style="text-align: center;" class="animate__animated animate__bounceInLeft">Welcome <span><?php echo $_SESSION['user_name'] ?></span></h1>
+                        <h3 style = "float: right;">Your balance <span><?php echo $_SESSION['coinsCount'] ?></span></h3>
+                        <br>
+                        <br>
+                        
+                        <h3>Announcements:</h3>
+                        <br>
 
-                            
-
-                            <div class="slideshow-box">
-                                <div class="slideshow-container">
-                                    <div class="mySlides">
-                                    <img src="../images/Beta2.png" class="slideshow-image">
-                                    <div class="text">Early Access Finally Ready!</div>
-                                    </div>
-
-                                    <div class="mySlides">
-                                    <img src="../images/Comming-Soon.jpg" class="slideshow-image">
-                                    <div class="text">Upcoming First Event!</div>
-                                    <a href="http://www.freepik.com">Designed by Freepik</a>
-                                    </div>
-
-                                    <div class="mySlides">
-                                    <img src="../images/New Realese.jpg" class="slideshow-image">
-                                    <div class="text">New Character Will Be Added Soon!</div>
-                                    <a href="https://pl.freepik.com/darmowe-zdjecie/nowa-wersja-najnowsza-koncepcja-aktualizacji-marki_17129699.htm#query=New%20content&position=37&from_view=search&track=ais">Made by rawpixel.com</a>
-                                    </div>
+                        <!-- <div class="slideshow-box">
+                            <div class="slideshow-container">
+                                <div class="mySlides">
+                                <img src="../images/Beta2.png" class="slideshow-image">
+                                <div class="text">Early Access Finally Ready!</div>
                                 </div>
 
-                                <br>
+                                <div class="mySlides">
+                                <img src="../images/Comming-Soon.jpg" class="slideshow-image">
+                                <div class="text">Upcoming First Event!</div>
+                                <a href="http://www.freepik.com">Designed by Freepik</a>
+                                </div>
 
-                                    <div style="text-align:center;">
-                                        <span class="dot"></span> 
-                                        <span class="dot"></span> 
-                                        <span class="dot"></span> 
+                                <div class="mySlides">
+                                <img src="../images/New Realese.jpg" class="slideshow-image">
+                                <div class="text">New Character Will Be Added Soon!</div>
+                                <a href="https://pl.freepik.com/darmowe-zdjecie/nowa-wersja-najnowsza-koncepcja-aktualizacji-marki_17129699.htm#query=New%20content&position=37&from_view=search&track=ais">Made by rawpixel.com</a>
+                                </div>
+                            </div>
+
+                            <br>
+
+                                <div style="text-align:center;">
+                                    <span class="dot"></span> 
+                                    <span class="dot"></span> 
+                                    <span class="dot"></span> 
+                                </div>
+                            </div>
+
+                            <script>
+                            var slideIndex = 0;
+                            showSlides();
+
+                            function showSlides() {
+                            var i;
+                            var slides = document.getElementsByClassName("mySlides");
+                            var dots = document.getElementsByClassName("dot");
+                            for (i = 0; i < slides.length; i++) {
+                                slides[i].style.display = "none";  
+                            }
+                            slideIndex++;
+                            if (slideIndex > slides.length) {slideIndex = 1}    
+                            for (i = 0; i < dots.length; i++) {
+                                dots[i].className = dots[i].className.replace(" active", "");
+                            }
+                            slides[slideIndex-1].style.display = "block";  
+                            dots[slideIndex-1].className += " active";
+                            setTimeout(showSlides, 3000); // Change image every 2 seconds
+                            }
+                            </script> -->
+
+
+
+                        <div id="page-content">
+                            <div class="container">
+                                <div class="main-scroll-div">
+                                    <div>
+                                        <button class="icon" onclick="scrolll()"> <i class="fas fa-angle-double-left"></i></button>
+                                    </div>
+                                    <div class="cover">
+                                        <div class="scroll-images">
+                                            <div class="child"><img class="child-img" src="../images/Beta2.png" alt="image"></div>
+                                            <div class="child"><img class="child-img" src="../images/Comming-Soon.jpg" alt="image"></div>
+                                            <div class="child"><img class="child-img" src="../images/New Realese.jpg" alt="image"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button class="icon" onclick="scrollr()"> <i class="fas fa-angle-double-right"></i></button>
                                     </div>
                                 </div>
 
                                 <script>
-                                var slideIndex = 0;
-                                showSlides();
+                                function scrolll() {
+                                    var left = document.querySelector(".scroll-images");
+                                    left.scrollBy(-350, 0)
+                                }
 
-                                function showSlides() {
-                                var i;
-                                var slides = document.getElementsByClassName("mySlides");
-                                var dots = document.getElementsByClassName("dot");
-                                for (i = 0; i < slides.length; i++) {
-                                    slides[i].style.display = "none";  
-                                }
-                                slideIndex++;
-                                if (slideIndex > slides.length) {slideIndex = 1}    
-                                for (i = 0; i < dots.length; i++) {
-                                    dots[i].className = dots[i].className.replace(" active", "");
-                                }
-                                slides[slideIndex-1].style.display = "block";  
-                                dots[slideIndex-1].className += " active";
-                                setTimeout(showSlides, 3000); // Change image every 2 seconds
+                                function scrollr() {
+                                    var right = document.querySelector(".scroll-images");
+                                    right.scrollBy(350, 0)
                                 }
                                 </script>
-
-                            <br>
-
-                            <!--<a href="login_form.php" class="btn">login</a>
-                            <a href="register_form.php" class="btn">register</a>
-                            <a href="logout.php" class="btn">logout</a>-->
                             </div>
-						</div>
+                        </div>
 
-                        <h3 style = "float: right;">Your balance <span><?php echo $_SESSION['coinsCount'] ?></span></h3>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
 
-						<div class="hero-app">
+                        </div>
+
+						<!-- <div class="hero-app">
 							<div class="hero-app-illustration">
 								<svg width="999" height="931" xmlns="http://www.w3.org/2000/svg">
 								    <defs>
@@ -238,7 +280,7 @@ if(isset($_SESSION['coinsCount'])) { // check if the 'uid' key is set in the $_S
 								    </g>
 								</svg>
 							</div>
-						</div>
+						</div> -->
                     </div>
                 </div>
             </section>

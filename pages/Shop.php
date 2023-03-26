@@ -98,6 +98,7 @@ mysqli_close($conn);
    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700|Playfair+Display:700" rel="stylesheet">
    <link rel="stylesheet" href="../dist/css/style.css">
    <link rel="stylesheet" href="../MyCss/ShopCss.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 	<link rel="icon" href="../images/monster.png">
 
@@ -149,23 +150,13 @@ mysqli_close($conn);
             <section class="hero">
                 <div class="container">
                     <div class="hero-inner">
-						<div class="hero-copy">
-                            <div class="content">
-                            <h2>Welcome to Shop</h2>
-                            <h3>Your balance <span id="coins-count"><?php echo $_SESSION['coinsCount'] ?></span></h3>
+                        <div class="content">
+                            <h2 style="text-align: center;" class="animate__animated animate__heartBeat">Welcome to Shop</h2>
+                            <h4>Your balance <span id="coins-count"><?php echo $_SESSION['coinsCount'] ?></span></h4>
                             <br>
+                            <h3 style="text-align: center; color: #FFD700;">Weapons</h3>
                             <br>
-                            
                             <div class="image-container">
-                                <div class="image-and-form">
-                                    <img src="../Items_Icons/1.png" class="image">
-                                    <div>Price: 500</div>
-                                    <br>
-                                    <form method="post">
-                                    <input type="hidden" id="itemID" name="itemID" value="1">
-                                    <input type="submit" name ="submit" value="Buy">
-                                    </form>
-                                </div>
                                 <div class="image-and-form">
                                     <img src="../Items_Icons/2.png" class="image">
                                     <div>Price: 300</div>
@@ -176,23 +167,30 @@ mysqli_close($conn);
                                     </form>
                                 </div>
                                 <div class="image-and-form">
-                                    <img src="../Items_Icons/3.png" class="image">
-                                    <div>Price: 20</div>
+                                    <img src="../Items_Icons/7.png" class="image">
+                                    <div>Price: 1500</div>
                                     <br>
                                     <form method="post">
-                                    <input type="hidden" id="itemID" name="itemID" value="3">
+                                    <input type="hidden" id="itemID" name="itemID" value="7">
                                     <input type="submit" name ="submit" value="Buy">
                                     </form>
                                 </div>
                                 <div class="image-and-form">
-                                    <img src="../Items_Icons/4.png" class="image">
-                                    <div>Price: 15</div>
+                                    <img src="../Items_Icons/8.png" class="image">
+                                    <div>Price: 350</div>
                                     <br>
                                     <form method="post">
-                                    <input type="hidden" id="itemID" name="itemID" value="4">
+                                    <input type="hidden" id="itemID" name="itemID" value="8">
                                     <input type="submit" name ="submit" value="Buy">
                                     </form>
                                 </div>
+                                
+                                <!-- Add more images here -->
+                            </div>
+                            <br>
+                            <h3 style="text-align: center; color: #FFD700;">Armor</h3>
+                            <br>
+                            <div class="image-container">
                                 <div class="image-and-form">
                                     <img src="../Items_Icons/5.png" class="image">
                                     <div>Price: 1500</div>
@@ -211,27 +209,105 @@ mysqli_close($conn);
                                     <input type="submit" name ="submit" value="Buy">
                                     </form>
                                 </div>
-                                
-                                <!-- Add more images here -->
+                                <div class="image-and-form">
+                                    <img src="../Items_Icons/12.png" class="image">
+                                    <div>Price: 800</div>
+                                    <br>
+                                    <form method="post">
+                                    <input type="hidden" id="itemID" name="itemID" value="12">
+                                    <input type="submit" name ="submit" value="Buy">
+                                    </form>
                                 </div>
-
-
-                            <!--<a href="login_form.php" class="btn">login</a>
-                            <a href="register_form.php" class="btn">register</a>
-                            <a href="logout.php" class="btn">logout</a>-->
-
+                                <div class="image-and-form">
+                                    <img src="../Items_Icons/13.png" class="image">
+                                    <div>Price: 800</div>
+                                    <br>
+                                    <form method="post">
+                                    <input type="hidden" id="itemID" name="itemID" value="13">
+                                    <input type="submit" name ="submit" value="Buy">
+                                    </form>
+                                </div>
+                                <div class="image-and-form">
+                                    <img src="../Items_Icons/14.png" class="image">
+                                    <div>Price: 800</div>
+                                    <br>
+                                    <form method="post">
+                                    <input type="hidden" id="itemID" name="itemID" value="14">
+                                    <input type="submit" name ="submit" value="Buy">
+                                    </form>
+                                </div>
                             </div>
                             <br>
+                            <h3 style="text-align: center; color: #FFD700;">Consumables</h3>
                             <br>
+                            <div class="image-container">
+                                <div class="image-and-form">
+                                    <img src="../Items_Icons/1.png" class="image">
+                                    <div>Price: 500</div>
+                                    <br>
+                                    <form method="post">
+                                    <input type="hidden" id="itemID" name="itemID" value="1">
+                                    <input type="submit" name ="submit" value="Buy">
+                                    </form>
+                                </div>
+                                <div class="image-and-form">
+                                    <img src="../Items_Icons/4.png" class="image">
+                                    <div>Price: 15</div>
+                                    <br>
+                                    <form method="post">
+                                    <input type="hidden" id="itemID" name="itemID" value="4">
+                                    <input type="submit" name ="submit" value="Buy">
+                                    </form>
+                                </div>
+                                <div class="image-and-form">
+                                    <img src="../Items_Icons/9.png" class="image">
+                                    <div>Price: 15</div>
+                                    <br>
+                                    <form method="post">
+                                    <input type="hidden" id="itemID" name="itemID" value="9">
+                                    <input type="submit" name ="submit" value="Buy">
+                                    </form>
+                                </div>
+                                <div class="image-and-form">
+                                    <img src="../Items_Icons/10.png" class="image">
+                                    <div>Price: 15</div>
+                                    <br>
+                                    <form method="post">
+                                    <input type="hidden" id="itemID" name="itemID" value="10">
+                                    <input type="submit" name ="submit" value="Buy">
+                                    </form>
+                                </div>
+                                <div class="image-and-form">
+                                    <img src="../Items_Icons/11.png" class="image">
+                                    <div>Price: 15</div>
+                                    <br>
+                                    <form method="post">
+                                    <input type="hidden" id="itemID" name="itemID" value="11">
+                                    <input type="submit" name ="submit" value="Buy">
+                                    </form>
+                                </div>
+                            </div>
                             <br>
+                            <h3 style="text-align: center; color: #FFD700;">Materials</h3>
+                            <br>
+                            <div class="image-container">
+                                <div class="image-and-form">
+                                    <img src="../Items_Icons/3.png" class="image">
+                                    <div>Price: 20</div>
+                                    <br>
+                                    <form method="post">
+                                    <input type="hidden" id="itemID" name="itemID" value="3">
+                                    <input type="submit" name ="submit" value="Buy">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
 
-	                        <!-- <div class="hero-cta"><a class="button button-shadow" href="#">Learn more</a>
-                            <a class="button button-primary button-shadow" href="#">Early access</a></div> 
+                        <!-- <div class="hero-cta"><a class="button button-shadow" href="#">Learn more</a>
+                        <a class="button button-primary button-shadow" href="#">Early access</a></div> 
 
-                            ctrl + k + c to comment mulltiple line at once
-                            -->
-                            
-						</div>
+                        ctrl + k + c to comment mulltiple line at once
+                        -->
 						<div class="hero-app">
 							<div class="hero-app-illustration">
 								<svg width="999" height="931" xmlns="http://www.w3.org/2000/svg">
@@ -306,13 +382,11 @@ mysqli_close($conn);
 							</div>
 						</div>
                     </div>
-                </div>
+               </div>
             </section>
         <main>
 
-        <div class="container">
 
-   
 </div>
 
         <footer class="site-footer">

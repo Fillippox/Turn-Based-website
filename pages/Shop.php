@@ -98,6 +98,7 @@ mysqli_close($conn);
    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700|Playfair+Display:700" rel="stylesheet">
    <link rel="stylesheet" href="../dist/css/style.css">
    <link rel="stylesheet" href="../MyCss/ShopCss.css">
+   <link rel="stylesheet" href="../login_system/css/buttons.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 	<link rel="icon" href="../images/monster.png">
@@ -128,19 +129,64 @@ mysqli_close($conn);
                         updateTime();
                         </script>
 
+                        <!-- <div>
+                            <div style="position: relative; left:225px; top: 60px"><a class="button button-shadow" style="background-color: #b28228; width: 125px" href="../login_system/user_page.php">Home</a> -->
                         <div>
-                            <div style="position: relative; left:225px; top: 60px"><a class="button button-shadow" style="background-color: #b28228; width: 125px" href="../login_system/user_page.php">Home</a>
-                            <a class="button button-shadow" style="background-color: #b28228; width: 125px" href="Adventure.php">Adventure</a>
-                            <a class="button button-shadow" style="background-color: #b28228; width: 125px" href="Bag.php">Bag</a> 
-                            <a class="button button-shadow" style="background-color: #b28228; width: 125px" href="Shop.php">Shop</a>
-                            <a href="../login_system/logout.php" class="button button-primary button-shadow">logout</a>
+                            <div style="position: relative; margin: 0 auto; padding-top: 1rem;">
+                                <div class="buttons-container">
+                                    <div style="padding-right: 4rem;">
+                                        <a href="../login_system/user_page.php">
+                                        <img width="64" height="64" src="../images/monster.png"/>
+                                        </a>
+                                    </div>
+                                    <a type="button" class="btn" href="../pages/Adventure.php" style="color: none;">
+                                        <strong >ADVENTURE</strong>
+                                        <div id="container-stars">
+                                        <div id="stars"></div>
+                                        </div>
+
+                                        <div id="glow">
+                                        <div class="circle"></div>
+                                        <div class="circle"></div>
+                                        </div>
+                                    </a>
+
+                                    <a type="button" class="btn" href="../pages/Bag.php">
+                                        <strong>BAG</strong>
+                                        <div id="container-stars">
+                                        <div id="stars"></div>
+                                        </div>
+
+                                        <div id="glow">
+                                        <div class="circle"></div>
+                                        <div class="circle"></div>
+                                        </div>
+                                    </a>
+                                    <a type="button" class="btn" href="../pages/Shop.php">
+                                        <strong>SHOP</strong>
+                                        <div id="container-stars">
+                                        <div id="stars"></div>
+                                        </div>
+
+                                        <div id="glow">
+                                        <div class="circle"></div>
+                                        <div class="circle"></div>
+                                        </div>
+                                    </a>
+                                    <a type="button" class="btn" href="../login_system/logout.php" style="background-image: linear-gradient(#212121, #212121),  linear-gradient(137.48deg, #4C000D 10%,#C20009 45%, #C20009 67%, #4C000D 87%);">
+                                        <strong>LOGOUT</strong>
+                                        <div id="container-stars">
+                                        <div id="stars"></div>
+                                        </div>
+
+                                        <div id="glow">
+                                        <div class="circle" style="background: #C20009;"></div>
+                                        <div class="circle" style="background: rgba(142, 81, 234, 0.704);"></div>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <h1 class="m-0">
-                            <a href="#">
-                              <img width="64" height="64" src="../images/monster.png"/>
-                            </a>
-                        </h1>
                     </div>
                 </div>
             </div>

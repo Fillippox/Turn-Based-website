@@ -28,6 +28,7 @@ if(isset($_SESSION['coinsCount'])) { // check if the 'uid' key is set in the $_S
    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700|Playfair+Display:700" rel="stylesheet">
    <link rel="stylesheet" href="../dist/css/style.css">
    <link rel="stylesheet" href="css/gallery.css">
+   <link rel="stylesheet" href="css/buttons.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
     <link rel="icon" href="../images/monster.png">
@@ -76,19 +77,64 @@ if(isset($_SESSION['coinsCount'])) { // check if the 'uid' key is set in the $_S
                         // Call the updateTime function for the first time
                         updateTime();
                         </script>
+                        
 
                         <div>
-                            <div style="position: relative; left:275px; top: 60px"><a class="button button-shadow" style="background-color: #b28228; width: 125px" href="../pages/Adventure.php">Adventure</a>
-                            <a class="button button-shadow" style="background-color: #b28228; width: 125px" href="../pages/Bag.php">Bag</a> 
-                            <a class="button button-shadow" style="background-color: #b28228; width: 125px" href="../pages/Shop.php">Shop</a>
-                            <a href="logout.php" class="button button-primary button-shadow">logout</a>
+                            <div style="position: relative; margin: 0 auto; padding-top: 1rem;">
+                                <div class="buttons-container">
+                                    <div style="padding-right: 4rem;">
+                                        <a href="user_page.php">
+                                        <img width="64" height="64" src="../images/monster.png"/>
+                                        </a>
+                                    </div>
+                                    <a type="button" class="btn" href="../pages/Adventure.php" style="color: none;">
+                                        <strong >ADVENTURE</strong>
+                                        <div id="container-stars">
+                                        <div id="stars"></div>
+                                        </div>
+
+                                        <div id="glow">
+                                        <div class="circle"></div>
+                                        <div class="circle"></div>
+                                        </div>
+                                    </a>
+
+                                    <a type="button" class="btn" href="../pages/Bag.php">
+                                        <strong>BAG</strong>
+                                        <div id="container-stars">
+                                        <div id="stars"></div>
+                                        </div>
+
+                                        <div id="glow">
+                                        <div class="circle"></div>
+                                        <div class="circle"></div>
+                                        </div>
+                                    </a>
+                                    <a type="button" class="btn" href="../pages/Shop.php">
+                                        <strong>SHOP</strong>
+                                        <div id="container-stars">
+                                        <div id="stars"></div>
+                                        </div>
+
+                                        <div id="glow">
+                                        <div class="circle"></div>
+                                        <div class="circle"></div>
+                                        </div>
+                                    </a>
+                                    <a type="button" class="btn" href="logout.php" style="background-image: linear-gradient(#212121, #212121),  linear-gradient(137.48deg, #4C000D 10%,#C20009 45%, #C20009 67%, #4C000D 87%);">
+                                        <strong>LOGOUT</strong>
+                                        <div id="container-stars">
+                                        <div id="stars"></div>
+                                        </div>
+
+                                        <div id="glow">
+                                        <div class="circle" style="background: #C20009;"></div>
+                                        <div class="circle" style="background: rgba(142, 81, 234, 0.704);"></div>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <h1 class="m-0">
-                            <a href="#">
-                              <img width="64" height="64" src="../images/monster.png"/>
-                            </a>
-                        </h1>
                     </div>
                 </div>
             </div>
@@ -104,7 +150,7 @@ if(isset($_SESSION['coinsCount'])) { // check if the 'uid' key is set in the $_S
                         <br>
                         <br>
                         
-                        <h3>Announcements:</h3>
+                        <h3 style="text-align: center;">Announcements:</h3>
                         <br>
 
                         <!-- <div class="slideshow-box">
@@ -159,7 +205,6 @@ if(isset($_SESSION['coinsCount'])) { // check if the 'uid' key is set in the $_S
                             </script> -->
 
 
-
                         <div id="page-content">
                             <div class="container">
                                 <div class="main-scroll-div">
@@ -168,9 +213,22 @@ if(isset($_SESSION['coinsCount'])) { // check if the 'uid' key is set in the $_S
                                     </div>
                                     <div class="cover">
                                         <div class="scroll-images">
-                                            <div class="child"><img class="child-img" src="../images/Beta2.png" alt="image"></div>
-                                            <div class="child"><img class="child-img" src="../images/Comming-Soon.jpg" alt="image"></div>
-                                            <div class="child"><img class="child-img" src="../images/New Realese.jpg" alt="image"></div>
+                                            <div class="child">
+                                                <img class="child-img image-hover" src="../images/Beta2.png" alt="image">
+                                                <div class="image-text">Early Acces is here!</div>
+                                            </div>
+                                            <div class="child">
+                                                <img class="child-img image-hover" src="../images/Comming-Soon.jpg" alt="image">
+                                                <div class="image-text">Upcoming First Event!
+                                                    <a href="http://www.freepik.com">Designed by Freepik</a>
+                                                </div>
+                                            </div>
+                                            <div class="child">
+                                                <img class="child-img image-hover" src="../images/New Realese.jpg" alt="image">
+                                                <div class="image-text">New Character Will Be Added Soon!
+                                                    <a href="https://pl.freepik.com/darmowe-zdjecie/nowa-wersja-najnowsza-koncepcja-aktualizacji-marki_17129699.htm#query=New%20content&position=37&from_view=search&track=ais">Made by rawpixel.com</a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div>
@@ -181,12 +239,12 @@ if(isset($_SESSION['coinsCount'])) { // check if the 'uid' key is set in the $_S
                                 <script>
                                 function scrolll() {
                                     var left = document.querySelector(".scroll-images");
-                                    left.scrollBy(-350, 0)
+                                    left.scrollBy(-650, 0)
                                 }
 
                                 function scrollr() {
                                     var right = document.querySelector(".scroll-images");
-                                    right.scrollBy(350, 0)
+                                    right.scrollBy(650, 0)
                                 }
                                 </script>
                             </div>
@@ -297,7 +355,8 @@ if(isset($_SESSION['coinsCount'])) { // check if the 'uid' key is set in the $_S
                 <div class="site-footer-inner has-top-divider">
                     <div class="brand footer-brand">
                         <a href="#">
-                           <img width="64" height="64" src="../images/monster.png"/>	
+                           <img width="64" height="64" src="../images/monster.png"/>
+                        </a>
                     </div>
                     <ul class="footer-links list-reset">
                         <li>

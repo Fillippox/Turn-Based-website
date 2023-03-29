@@ -70,6 +70,27 @@
     height: 100%;
 }
 
+.image-hover:hover {
+    filter: grayscale(100%);
+  }
+  
+  .image-text {
+    position: sticky;     /* I have no Idea why but it works with STICKY */
+    bottom: 0;
+    left: 0;
+    width: 710px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .image-hover:hover .image-text {
+    display: block;
+  }
+
 .icon {
     color: rgb(104, 102, 96);
     background-color: #06101F;

@@ -6,6 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="https://kit.fontawesome.com/a59b9b09ab.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <script src="../node_modules/@splidejs/splide/dist/js/splide.min.js"></script>
+    <link rel="stylesheet" href="../node_modules/@splidejs/splide/dist/css/splide.min.css">
+ 
+    <!-- <div class="splide" role="group" aria-label="Splide Basic HTML Example">
+        <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide">Slide 01</li>
+                    <li class="splide__slide">Slide 02</li>
+                    <li class="splide__slide">Slide 03</li>
+                </ul>
+        </div>
+    </div> -->
+
         <style>
         * {
             margin: 0px;
@@ -124,12 +139,12 @@
     <script>
     function scrolll() {
         var left = document.querySelector(".scroll-images");
-        left.scrollBy(-350, 0)
+        left.scrollBy(-600, 0)
     }
 
     function scrollr() {
         var right = document.querySelector(".scroll-images");
-        right.scrollBy(350, 0)
+        right.scrollBy(600, 0)
     }
     </script>
 </div>
